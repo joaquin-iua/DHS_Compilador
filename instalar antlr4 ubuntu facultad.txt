@@ -1,0 +1,11 @@
+﻿sudo apt purge -y python2.x-minimal
+sudo ln -s /usr/bin/python3 /usr/bin/python
+sudo apt install -y python3-pip
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
+python –version
+curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.x
+
+pip install antlr4-python3-runtime
+
+Lo que trabajamos en clase es una maquina de turing donde la primera regla es el blanco de inicio
+y el EOF el blanco final que corta la sentencia.

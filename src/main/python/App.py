@@ -5,14 +5,14 @@ from compiladoresParser import compiladoresParser
 
 
 def main(argv):
-    archivo = "input/entrada.txt"
+    archivo = "input/parentesis.txt" # cambiar
     if len(argv) > 1 :
         archivo = argv[1]
     input = FileStream(archivo)
     lexer = compiladoresLexer(input)
     stream = CommonTokenStream(lexer)
     parser = compiladoresParser(stream)
-    tree = parser.s()
+    tree = parser.si() # cambiar
     print(tree.toStringTree(recog=parser))
 
 if __name__ == '__main__':

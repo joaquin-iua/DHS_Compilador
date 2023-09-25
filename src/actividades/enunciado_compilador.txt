@@ -1,0 +1,2 @@
+Hacer el compilador de C acotado (Parcial y Final)
+Completar las reglas del github del profe.
