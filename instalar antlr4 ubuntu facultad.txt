@@ -1,4 +1,5 @@
-﻿sudo apt purge -y python2.x-minimal
+﻿Forma 1 de Instalarlo
+sudo apt purge -y python2.x-minimal
 sudo ln -s /usr/bin/python3 /usr/bin/python
 sudo apt install -y python3-pip
 sudo ln -s /usr/bin/pip3 /usr/bin/pip
@@ -6,3 +7,12 @@ python –version
 curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.x
 
 pip install antlr4-python3-runtime
+
+*************************************************************************
+
+Forma 2 de Instalarlo (Desde 0)
+-Instalar Java >= 11.
+-Instalar pip si no se tiene.
+-Instalar Visual Studio Code y la Extension ANTLR4 Grammar.
+-Instalar pip install antlr4-python3-runtime==4.13.1
+-Instalar sudo apt install python3-antlr4

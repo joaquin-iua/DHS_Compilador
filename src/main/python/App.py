@@ -5,7 +5,7 @@ from compiladoresParser import compiladoresParser
 
 
 def main(argv):
-    archivo = "input/reglas_basicas.txt" # cambiar
+    archivo = "input/decl.c" # cambiar
     if len(argv) > 1 :
         archivo = argv[1]
     input = FileStream(archivo)
