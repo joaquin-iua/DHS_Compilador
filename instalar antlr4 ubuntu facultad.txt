@@ -29,7 +29,7 @@ git push origin main
 
 *************************************************************************
 
-Problema de ORD (habiendo instalado sudo apt install python3-antlr4 y pip install antlr4-python3-runtime==4.13.1)
+Problema de ORD (habiendo instalado sudo apt install python3-antlr4 y pip install antlr4-python3-runtime)
 Si no tengo pip
 sudo apt install python3-pip --fix-missing
 
