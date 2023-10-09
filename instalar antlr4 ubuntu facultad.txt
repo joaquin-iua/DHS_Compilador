@@ -16,3 +16,11 @@ Forma 2 de Instalarlo (Desde 0)
 -Instalar Visual Studio Code y la Extension ANTLR4 Grammar.
 -Instalar pip install antlr4-python3-runtime==4.13.1
 -Instalar sudo apt install python3-antlr4
+
+Para usar Git desde una pc nueva
+git clone ...
+git add .
+git config user.email ""
+git config user.name "iua"
+git commit -m "Mi Commit"
+git push origin main
