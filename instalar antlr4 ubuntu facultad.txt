@@ -17,6 +17,8 @@ Forma 2 de Instalarlo (Desde 0)
 -Instalar pip install antlr4-python3-runtime==4.13.1
 -Instalar sudo apt install python3-antlr4
 
+*************************************************************************
+
 Para usar Git desde una pc nueva
 git clone ...
 git add .
@@ -24,3 +26,14 @@ git config user.email ""
 git config user.name "iua"
 git commit -m "Mi Commit"
 git push origin main
+
+*************************************************************************
+
+Problema de ORD (habiendo instalado sudo apt install python3-antlr4 y pip install antlr4-python3-runtime==4.13.1)
+Si no tengo pip
+sudo apt install python3-pip --fix-missing
+
+Luego
+pip install antlr4-python3-runtime==4.13.1
+
+Explicación: Cuando se actualiza ubuntu se rompen las compatibilidades con antlr4 y las librerias.
