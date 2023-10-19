@@ -37,3 +37,7 @@ Luego
 pip install antlr4-python3-runtime==4.13.1
 
 Explicación: Cuando se actualiza ubuntu se rompen las compatibilidades con antlr4 y las librerias.
+
+**************************************************************************
+Error debugging, el archivo no es compatible para debuggear.
+Solución: Solo modificar el archivo como por ejemplo agregarle un espacio en blanco en algun lado para que se modifique.
