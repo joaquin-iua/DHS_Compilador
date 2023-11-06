@@ -17,10 +17,11 @@ class TS:
             self.ctx.pop()
 
     def buscar(self, nombre):
-        for contexto in reversed(self.ctx):
-            if nombre in contexto.simbolos:
-                return contexto.simbolos[nombre]
-        return None
+        self.ctx.buscar(self.ctx, nombre)
+
+    # def buscarGlobal(self, nombre):
+    #     for contexto in reversed(self._instance.ctx):
+    #         print("h") ctrl shift 7
 
     def agregar(self, simbolo):
         self.ctx[-1].agregar_simbolo(simbolo)

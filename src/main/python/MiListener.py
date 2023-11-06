@@ -2,6 +2,7 @@ from antlr4 import *
 from compiladoresLexer import compiladoresLexer
 from compiladoresParser import compiladoresParser
 from compiladoresListener import compiladoresListener
+from TS import TS
 
 class MiListener(compiladoresListener):
     def __init__(self, output_file):
@@ -9,6 +10,7 @@ class MiListener(compiladoresListener):
         self.symbol_table = {}
         self.current_context = None
         self.output_file = output_file
+
 
     def enterProgram(self, ctx: compiladoresParser.ProgramContext):
         print("Entering program")

@@ -63,7 +63,7 @@ declaration:
 	datatype ID definition variable_list; // Regla para declaraciones de variables
 
 definition:
-	EQ NUM
+	EQ expression
 	|; // Regla para definiciones de variables (opcional)
 
 variable_list:
