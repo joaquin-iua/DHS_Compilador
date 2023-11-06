@@ -2,7 +2,7 @@ import sys
 from antlr4 import *
 from compiladoresLexer  import compiladoresLexer
 from compiladoresParser import compiladoresParser
-from MiListener import MiListener
+from MyListener import MyListener
 
 def main(argv):
     archivo = "input/decl.c"
@@ -20,7 +20,7 @@ def main(argv):
     parser = compiladoresParser(stream)
 
     # Crear una instancia de tu clase personalizada MiListener
-    listener = MiListener("output/Tabla_De_Simbolos.txt")
+    listener = MyListener("output/Tabla_De_Simbolos.txt")
 
     # Agregar el listener al parser
     parser.addParseListener(listener)

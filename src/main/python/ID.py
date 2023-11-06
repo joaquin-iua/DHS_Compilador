@@ -1,7 +1,7 @@
 class ID:
-    def __init__(self, nombre, tdato):
-        self.nombre = nombre
-        self.tdato = tdato
-        self.inicializado = False
-        self.accedido = False
-        self.contexto = None
+    def __init__(self, name, datatype):
+        self.name = name
+        self.datatype = datatype
+        self.initialized = False
+        self.accessed = False
+        self.context = None
