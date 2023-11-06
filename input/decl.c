@@ -1,5 +1,5 @@
-int x ;
-double c ;
+int x;
+double c;
 
 {
     int x;
@@ -12,13 +12,10 @@ double c ;
     }
 }
 
-
-x = - 10 ;
+x = -10;
 y = -x + 5 / 3 + 1;
 
-z = x + y ;
-
-r = f(x) ;
+z = x + y;
 
 int y = 0;
 
@@ -34,6 +31,14 @@ while (x < 10) {
 while (x < 10)
     a = b + c;
 
-i++  -> i = i + 1
-++i  -> i = i + 1
+if (5 + 3 > 4 + 2)
+    a = 3;
 
+int func(int x, int y);
+
+b = func(3, 4);
+bb = func(a, b);
+
+int func(int x, int y) {
+    return x + y;
+}

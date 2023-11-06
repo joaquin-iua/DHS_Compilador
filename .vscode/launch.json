@@ -13,7 +13,7 @@
             // Archivo a parsear
             "input": "input/decl.c", // cambiar
             // Simbolo inicial
-            "startRule": "programa", // cambiar
+            "startRule": "program", // cambiar
             // Muestra Arbol Sintactico
             "printParseTree": true,
             "visualParseTree": true
