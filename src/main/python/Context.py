@@ -1,8 +1,8 @@
 class Context():
     cont = 0
 
-    def __init__(self, **kwards):
-        self._symbols = kwards
+    def __init__(self, **kwargs):
+        self._symbols = kwargs
         self.contextNum = Context.cont
         Context._contIncrement()
     
