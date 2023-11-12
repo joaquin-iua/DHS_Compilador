@@ -8,9 +8,6 @@ Para Ejecutarlo en VS Code:
 5) Si pregunta, ejecutar el archivo tipo Python File.
 6) Luego se puede ejecutar F5 estando en App.py
 
-Lo que trabajamos en clase es una maquina de turing donde la primera regla es el blanco de inicio
-y el EOF el blanco final que corta la sentencia.
-
 Al cambiar de archivo input y regla inicial modificar
 App.py -> en 2 lugares,
 launch.json -> en 2 lugares.

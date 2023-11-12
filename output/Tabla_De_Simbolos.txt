@@ -1,4 +1,0 @@
-Tabla de Símbolos:
-Contexto: None
-Contexto: [93 75 76 76 72]
-Contexto: [93 75 76 118 93 75 76 76 72]

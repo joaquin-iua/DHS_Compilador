@@ -1,5 +1,7 @@
 int x;
 double c;
+int y;
+int z;
 
 {
     int x;
@@ -17,7 +19,7 @@ y = -x + 5 / 3 + 1;
 
 z = x + y;
 
-int y = 0;
+y = 0;
 
 int p, q, r, s;
 
@@ -36,9 +38,10 @@ if (5 + 3 > 4 + 2)
 
 int func(int x, int y);
 
-b = func(3, 4);
-bb = func(a, b);
-
 int func(int x, int y) {
     return x + y;
 }
+
+b = func(3, 4);
+int bb = func(a, b);
+

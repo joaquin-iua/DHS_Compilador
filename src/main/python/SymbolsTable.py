@@ -1,62 +1,52 @@
+from ID import *
 from Context import Context
-from ID import ID
 
-class SymbolsTable:
-    __instance = None
-    context_list = None
+class SymbolsTable():
 
-    @staticmethod
-    def get_symbols_table():
-         if SymbolsTable.__instance == None:
-            SymbolsTable()
-         return SymbolsTable.__instance
-    
-    def __init__(self):
-      if SymbolsTable.__instance != None:
-         raise Exception("This class is a singleton!")
-      else:
-         SymbolsTable.__instance = self
-         SymbolsTable.context_list = [Context()]
+    _instance = None  
+    _contextStack = []  
 
-    def create_context(self):
-        self.context_list.append(Context())
+    def __new__(cls):
+        if SymbolsTable._instance is None:
+            SymbolsTable._instance = object.__new__(cls)
+            SymbolsTable._contextStack.append(Context())  
+        return SymbolsTable._instance
 
-    def delete_context(self):
-        if len(self.context_list) > 1:
-            self.context_list.pop()
+    @property
+    def contextStack(self):
+        return SymbolsTable._contextStack
 
-    def get_last_context(self):
-        return self.context_list[-1]        
+    def addContext(self):
+        SymbolsTable._contextStack.append(Context())
 
-    def find_in_last_Context(self, name):
-        last_context = self.context_list[-1]
-        found_id = last_context.find(last_context, name)
-        return found_id
-        
-    def find_global(self, name):
-         for context in reversed(self.context_list):
-             found_id = context.find(context, name)
-            
-             if(found_id != None):
-                 return found_id
-             
-         return None
-                 
-    def add_id(self, id):
-        last_context = self.context_list[-1]
-        last_context.add_id(id)
+    def deleteContext(self):
+        return SymbolsTable._contextStack.pop()
 
-    def last_context_to_string(self):
-        last_context = self.context_list[-1]
-        last_context.to_string()
+    def getLastContext(self):
+        return SymbolsTable._contextStack[-1]
 
-if __name__ == "__main__":
-    st = SymbolsTable.get_symbols_table()
+    def findIdGlobal(self, idName) -> Context:
+        local_context = SymbolsTable.findIdLocal(self, idName)
+        if local_context:
+            return local_context
 
-    #st.create_context()
-    context = st.get_last_context()
-    id_a = ID("a", "int")
-    context.add_id(id_a)
-    print(context.to_string())
+        global_context = SymbolsTable.findId(self, idName)
+        if global_context:
+            return global_context
 
-    print(st.last_context_to_string())
+        # print(f"Identifier '{idName}' not found")
+
+    def findId(self, idName) -> Context:
+        for Context in SymbolsTable._contextStack[-2::-1]:
+            if idName in Context.symbols:
+                return Context
+
+   
+    def findIdLocal(self, idName) -> Context:
+        if idName in SymbolsTable._contextStack[-1].symbols:
+            return SymbolsTable._contextStack[-1]
+
+    def addId(self, id):
+        SymbolsTable._contextStack[-1].addSymbol(id)
+
+

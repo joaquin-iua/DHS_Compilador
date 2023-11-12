@@ -1,20 +1,28 @@
-from ID import ID
+class Context():
+    cont = 0
 
-class Context:
-    def __init__(self):
-        self.ids = {}
-
-    def add_id(self, id):
-        if self.ids.get(id.name) != None:
-            raise Exception(f"Error: El símbolo {id.nombre} ya existe en este contexto.")
-        self.ids[id.name] = id
-
-    def find(self, name):
-        if name in self.ids.keys():
-            return self.ids.get(name)
-            
-        return None
+    def __init__(self, **kwards):
+        self._symbols = kwards
+        self.contextNum = Context.cont
+        Context._contIncrement()
     
-    def to_string(self):
-        for id in self.ids.values():
-            return f"nombre: {id.name}, datatype: {id.datatype}"
+    def __str__(self) -> str:
+        output = "-------------------------------------------------------------------------------------\n"
+        output += f'\nContext[{self.contextNum}]\n'
+        output += "ID\t\t\t\t\t\tNAME\t\t\tDATATYPE\t\tINICIALIZED\t\t\tACCESSED\n"
+        for key, value in self._symbols.items():
+            output += f"\n{str(value)}\n"
+        output += "-------------------------------------------------------------------------------------\n\n\n\n\n"
+        return output
+
+    @property
+    def symbols(self):
+        return self._symbols
+
+    def addSymbol(self, id):
+        self._symbols[id.name] = id
+    
+    @classmethod
+    def _contIncrement(cls):
+        Context.cont += 1
+

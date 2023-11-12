@@ -1,193 +1,149 @@
 grammar compiladores;
 
-// Tokens
-fragment LETTER: [A-Za-z];
-fragment DIGIT: [0-9];
+fragment LETTER : [A-Za-z] ;
+fragment DIGIT : [0-9] ;
 
-EQ: '='; // Token para el operador de asignación
-EQQ: '=='; // Token para el operador de igualdad
-NE: '!='; // Token para el operador de desigualdad
-LT: '<'; // Token para el operador menor que
-GT: '>'; // Token para el operador mayor que
-LE: '<='; // Token para el operador menor o igual que
-GE: '>='; // Token para el operador mayor o igual que
-PP: '++'; // Token para el operador de incremento
-MM: '--'; // Token para el operador de decremento
-PLUS: '+'; // Token para el operador de suma
-MINUS: '-'; // Token para el operador de resta
-MULT: '*'; // Token para el operador de multiplicación
-DIV: '/'; // Token para el operador de división
-MOD: '%'; // Token para el operador de módulo
-AND: '&&'; // Token para el operador lógico AND
-OR: '||'; // Token para el operador lógico OR
-NOT: '!'; // Token para el operador lógico NOT
-LPAREN: '('; // Token para paréntesis izquierdo
-RPAREN: ')'; // Token para paréntesis derecho
-LBRACE: '{'; // Token para llave izquierda
-RBRACE: '}'; // Token para llave derecha
-SEMICOLON: ';'; // Token para punto y coma
-COMMA: ','; // Token para coma
+EQ : '=' ;
+LP : '(' ;
+RP : ')' ;
+LB : '{' ;
+RB : '}' ;
+SEMICOLON : ';' ;
+COMA : ',' ;
 
-NUM: DIGIT+; // Token para números enteros
-INT: 'int'; // Token para la palabra clave 'int'
-DOUBLE: 'double'; // Token para la palabra clave 'double'
-WHILE: 'while'; // Token para la palabra clave 'while'
-IF: 'if'; // Token para la palabra clave 'if'
-FOR: 'for'; // Token para la palabra clave 'for'
-RETURN: 'return'; // Token para la palabra clave 'return'
-ID: (LETTER | '_') (LETTER | DIGIT | '_')*; // Token para identificadores
+LT: '<';
+GT: '>';
+EQQ: '==';
+NE: '!=';
+GE: '>=';
+LE: '<=';
+AND: '&&';
+OR: '||';
+PLUS : '+';
+MINUS : '-';
+MULTIPLICATION : '*';
+DIVISION : '/';
+MODULE : '%';
+INCREMENT : '++';
+DECREMENT : '--';
 
-WS:
-	[ \t\n\r] -> skip; // Token para espacios en blanco (ignorado)
-OTHER: .; // Token para cualquier otro carácter
+INT : 'int';
+DOUBLE:'double' ;
 
-program: instructions EOF; // Regla inicial del programa
+WHILE : 'while' ;
+FOR : 'for';
+IF : 'if';
+ELSE : 'else';
+RETURN : 'return';
 
-instructions:
-	instruction instructions
-	|; // Regla para instrucciones
+NUMBER : DIGIT+ ;
+ID : (LETTER | '_')(LETTER | DIGIT | '_')* ;
+WS : [ \t\r\n] -> skip ;
+OTHER : . ;
 
-instruction:
-	declaration SEMICOLON // Regla para declaraciones
-	| assignment SEMICOLON // Regla para asignaciones
-	| return_statement SEMICOLON // Regla para declaraciones de retorno
-	| if_statement // Regla para declaraciones condicionales
-	| for_statement // Regla para declaraciones de bucle 'for'
-	| while_statement // Regla para declaraciones de bucle 'while'
-	| block // Regla para bloques de código
-	| function_prototype // Regla para prototipado de funciones.
-	| function_call // Regla para llamado a funciones.
-	| function_definition; // Regla para definiciones de funciones
-	
-declaration:
-	datatype ID definition variable_list; // Regla para declaraciones de variables
+program : instructions EOF ;
 
-definition:
-	EQ expression
-	|; // Regla para definiciones de variables (opcional)
+instructions : instruction instructions
+              |
+              ;
 
-variable_list:
-	COMMA ID definition variable_list
-	|; // Regla para listas de variables
+instruction : declaration SEMICOLON
+            | assignment SEMICOLON
+            | return_stmt SEMICOLON
+            | if_stmt
+            | for_stmt
+            | while_stmt
+            | function_prototype SEMICOLON
+            | function
+            | function_call SEMICOLON
+            | block
+            ;
 
-block:
-	LBRACE instructions RBRACE; // Regla para bloques de código
+declaration : datatype ID definition var_list ;
 
-return_statement:
-	RETURN expression; // Regla para declaraciones de retorno
+var_list : COMA ID definition var_list
+          |
+          ;
 
-if_statement:
-	IF LPAREN logical_expression RPAREN instruction else_statement;
-	// Regla para declaraciones condicionales
+definition : EQ arithmetic_logical_op
+           |
+           ;
 
-else_statement:
-	'else' instruction
-	|; // Regla para el bloque 'else' (opcional)
+assignment : ID EQ arithmetic_logical_op;
 
-for_statement:
-	FOR LPAREN assignment SEMICOLON logical_expression SEMICOLON assignment RPAREN instruction;
-	// Regla para declaraciones de bucle 'for'
+datatype  : INT 
+          | DOUBLE
+          ;
 
-while_statement:
-	WHILE LPAREN logical_expression RPAREN instruction; // Regla para declaraciones de bucle 'while'
+block : LB instructions RB;
 
-assignment:
-	ID EQ arithmetic_operation // Regla para asignaciones aritméticas
-	| ID EQ function_call // Regla para asignaciones de llamadas a funciones
-	| ID EQ logical_operation // Regla para asignaciones lógicas
-	| ID PLUS PLUS // Regla para incremento
-	| ID MINUS MINUS; // Regla para decremento
+if_stmt : IF LP arithmetic_logical_op RP instruction | IF LP arithmetic_logical_op RP instruction else_stmt;
 
-arithmetic_operation:
-	expression; // Regla para operaciones aritméticas
+else_stmt : ELSE block;
 
-logical_operation:
-	logical_expression; // Regla para operaciones lógicas
+for_stmt : FOR LP assignment SEMICOLON arithmetic_logical_op SEMICOLON assignment SEMICOLON instruction;
 
-expression: term additive_expression |; // Regla para expresiones
+while_stmt : WHILE LP arithmetic_logical_op RP instruction ;
 
-additive_expression:
-	PLUS term additive_expression
-	| MINUS term additive_expression
-	|; // Regla para expresiones aritméticas
+return_stmt : RETURN arithmetic_logical_op;
 
-term: factor multiplicative_expression |; // Regla para términos
+arithmetic_logical_op : logical_expression;
 
-multiplicative_expression:
-	MULT factor multiplicative_expression
-	| DIV factor multiplicative_expression
-	| MOD factor multiplicative_expression
-	|; // Regla para expresiones multiplicativas
+logical_expression : logical_term logical_exp;
 
-factor:
-	negative_sign NUM // Regla para números negativos
-	| negative_sign ID // Regla para identificadores negativos
-	| function_call // Regla para llamadas a funciones
-	| LPAREN expression RPAREN; // Regla para expresiones entre paréntesis
+logical_exp : OR logical_term logical_exp
+     |;
 
-negative_sign: MINUS |; // Regla para signo negativo (opcional)
+logical_term : expression lterm | expression cmp expression lterm;
 
-logical_expression:
-	logical_term logical_expression_; // Regla para expresiones lógicas
+lterm : AND logical_expression lterm
+      |;
 
-logical_expression_:
-	OR logical_term logical_expression_
-	|; // Regla para operaciones lógicas OR
+expression : arithmetic_term exp;
 
-logical_term:
-	logical_factor logical_term_; // Regla para términos lógicos
+exp : PLUS   arithmetic_term exp
+    | MINUS arithmetic_term exp
+    |
+    ;
 
-logical_term_:
-	AND logical_factor logical_term_
-	|; // Regla para operaciones lógicas AND
+arithmetic_term : factor term ;
 
-logical_factor:
-	factor // Regla para factores lógicos
-	| comparison // Regla para comparaciones
-	| LPAREN logical_expression RPAREN; // Regla para expresiones lógicas entre paréntesis
+term : MULTIPLICATION factor term
+     | DIVISION  factor term    
+     | MODULE  factor term
+     |
+     ;
 
-comparison:
-	arithmetic_operation comparison_operator arithmetic_operation
-	| comparison comparison_operator comparison; // Regla para comparaciones
+factor : ID
+       | NUMBER
+       | function_call
+       | MINUS NUMBER
+       | MINUS ID
+       | LP logical_expression RP
+       ;
 
-comparison_operator:
-	EQQ
-	| NE
-	| GT
-	| LT
-	| GE
-	| LE; // Regla para operadores de comparación
+function_prototype : datatype ID LP received_args RP;
 
-datatype:
-	DOUBLE
-	| INT; // Regla para tipos de datos (double o int)
+function : datatype ID LP received_args RP block ;
 
-// Manejo de Funciones.
+function_call : ID LP sent_args RP;
 
-// Prototipo de Función.
-function_prototype:
-	datatype ID LPAREN parameters RPAREN SEMICOLON; // Regla para prototipos de funciones
+received_args : datatype ID received_args_list
+              |;
 
-parameters:
-	datatype ID parameters_list
-	|; // Regla para parámetros de funciones (opcional)
+received_args_list : COMA datatype  ID received_args_list
+            | ;
 
-parameters_list:
-	COMMA datatype ID parameters_list
-	|; // Regla para listas de parámetros de funciones (opcional)
+sent_args : expression sent_args_list
+             |;
 
-// Definición de Función.
-function_definition:
-	datatype ID LPAREN parameters RPAREN block; // Regla para definiciones de funciones
+sent_args_list: COMA expression sent_args_list
+                  |;
 
-// Llamada a Función.
-function_call:
-	ID LPAREN arguments RPAREN; // Regla para llamadas a funciones
-
-arguments:
-	expression arguments_list
-	|; // Regla para argumentos de funciones (opcional)
-
-arguments_list:
-	COMMA expression arguments_list
-	|; // Regla para listas de argumentos de funciones (opcional)
+cmp : GT 
+    | LT
+    | EQQ 
+    | NE 
+    | GE
+    | LE
+    ;

@@ -1,0 +1,88 @@
+-------------------------------------------------------------------------------------
+
+Context[3]
+ID						NAME			DATATYPE		INICIALIZED			ACCESSED
+
+Variable				x				int				False				False
+-------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------
+
+Context[2]
+ID						NAME			DATATYPE		INICIALIZED			ACCESSED
+
+Variable				z				int				False				False
+-------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------
+
+Context[1]
+ID						NAME			DATATYPE		INICIALIZED			ACCESSED
+
+Variable				x				int				False				False
+-------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------
+
+Context[4]
+ID						NAME			DATATYPE		INICIALIZED			ACCESSED
+-------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------
+
+Context[5]
+ID						NAME			DATATYPE		INICIALIZED			ACCESSED
+-------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------
+
+Context[0]
+ID						NAME			DATATYPE		INICIALIZED			ACCESSED
+
+Variable				x				int				False				False
+
+Variable				c				double				False				False
+
+Variable				y				int				False				False
+
+Variable				z				int				False				False
+
+Variable				p				int				False				False
+
+Variable				q				int				False				False
+
+Variable				r				int				False				False
+
+Variable				s				int				False				False
+
+Variable				a				int				False				False
+
+Variable				b				int				False				False
+
+Function				func				int				False				False
+args:[
+Variable				x				int				False				False
+Variable				y				int				False				False
+]
+
+Variable				bb				int				False				False
+-------------------------------------------------------------------------------------
+
+
+
+
