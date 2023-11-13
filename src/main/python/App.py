@@ -16,7 +16,7 @@ def main(argv):
     listener = MyListener()
     parser.addParseListener(listener)
     tree = parser.program()
-    print(tree.toStringTree(recog=parser))
+    # print(tree.toStringTree(recog=parser))
     # visitante = miVisitor()
     # visitante.visit(tree)
 

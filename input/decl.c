@@ -1,10 +1,10 @@
-int x;
+int x = 10;
 double c;
-int y;
 int z;
 
 {
     int x;
+    int y = 2;
     {
         int z;
         {
@@ -23,7 +23,7 @@ y = 0;
 
 int p, q, r, s;
 
-int a, b = 0, c, d = 5;
+int a, b = 0, c = 2, d = 5;
 
 while (x < 10) {
     z = y;
@@ -36,10 +36,10 @@ while (x < 10)
 if (5 + 3 > 4 + 2)
     a = 3;
 
-int func(int x, int y);
+int func(int x, int t);
 
-int func(int x, int y) {
-    return x + y;
+int func(int x, int t) {
+    return x + t;
 }
 
 b = func(3, 4);

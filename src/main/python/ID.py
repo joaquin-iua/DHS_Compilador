@@ -26,10 +26,16 @@ class ID(ABC):
     @property
     def inicialized(self):
         return self._inicialized
+    
+    def setInitialized(self):
+        self._inicialized = True
 
     @property
     def accessed(self):
         return self._accessed
+    
+    def setAccessed(self):
+        self._accessed = True
 
     @name.setter
     def name(self, name):

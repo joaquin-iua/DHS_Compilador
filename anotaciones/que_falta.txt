@@ -1,0 +1,46 @@
+Que se tiene
+*****Análisis Lexico y Sintactico (g4)***** ---> COMPLETADO.
+
+Resultado: Reglas y Tokens definidas en compiladores.g4
+
+*****Listener***** ---> COMPLETADO.
+
+Resultado: Tabla de Simbolos y Analisis Semantico.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Que falta
+*****Visitor*****
+Hay que visitar todas las reglas que representen informacion importante de memoria como cambios de variables, operaciones, etc.
+No visitar reglas sin sentido como puntos y coma y cosas asi.
+
+Resultado: Codigo Intermedio (COn el formato y la forma que guste mientras mantenga coherencia, no hay asignado a ningun lenguaje ensamblador especifico).
+
+Pasos para llevarlo a cabo:
+1) Verificar todas las reglas gramaticas.
+2) Solo visitar las que hagan falta.
+3) Ir imprimiendo en un archivo txt el resultado en codigo ensamblador de tres direcciones para cada operacion importante de memoria.
+
+Guia de Prueba: https://github.com/meschoyez/ConstComp2023/blob/master/doc/CodigoTresDirecciones.txt
+Guia de Implementacion de Visitor: https://github.com/meschoyez/DHS2023/blob/master/src/main/python/miVisitor.py
+
+*****Optimizaciones*****
+A partir del codigo de tres direcciones (intermedio) generar programas mas eficientes en recursos y tiempo quitando variables que se repitan,
+realizando propagacion de constantes y quitando variables u operaciones que se repitan.
+
+Por cada pasada nueva toma el codigo de tres direcciones actual, lo optimiza y lo muestra. La idea es que se tenga un trackeo de como fue quedando el
+codigo para todas las pasadas realizadas. El codigo debe realizar 5 pasadas generales, pero se debe cortarlo antes al bucle si es que ya no se esta mejorando 
+u optimizando nada del codigo en alguna pasada anterior a la quinta.
+
+Resultado: Archivo que muestra los resultados de todas las pasadas (tambien puede ir el original).
+
+Pasos para llevarlo a cabo:
+1) Tomar el codigo de tres direcciones actual.
+2) Hacerlo pasar por 5 pasadas mientras vaya cambiando y mejorando, si es igual al anterior parar el proceso.
+3) En cada pasada ir imprimiendo el resultado que quedo, se puede poner tambien al principio el original.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Presentacion para el Final
+Guiarse por el PDF de consigna.
+
+
+

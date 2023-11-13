@@ -3,7 +3,7 @@
 Context[3]
 ID						NAME			DATATYPE		INICIALIZED			ACCESSED
 
-Variable				x				int				False				False
+Variable				x				int				False				True
 -------------------------------------------------------------------------------------
 
 
@@ -14,7 +14,7 @@ Variable				x				int				False				False
 Context[2]
 ID						NAME			DATATYPE		INICIALIZED			ACCESSED
 
-Variable				z				int				False				False
+Variable				z				int				True				False
 -------------------------------------------------------------------------------------
 
 
@@ -26,6 +26,8 @@ Context[1]
 ID						NAME			DATATYPE		INICIALIZED			ACCESSED
 
 Variable				x				int				False				False
+
+Variable				y				int				True				False
 -------------------------------------------------------------------------------------
 
 
@@ -54,13 +56,11 @@ ID						NAME			DATATYPE		INICIALIZED			ACCESSED
 Context[0]
 ID						NAME			DATATYPE		INICIALIZED			ACCESSED
 
-Variable				x				int				False				False
+Variable				x				int				True				True
 
-Variable				c				double				False				False
+Variable				c				double				False				True
 
-Variable				y				int				False				False
-
-Variable				z				int				False				False
+Variable				z				int				True				False
 
 Variable				p				int				False				False
 
@@ -70,17 +70,17 @@ Variable				r				int				False				False
 
 Variable				s				int				False				False
 
-Variable				a				int				False				False
+Variable				a				int				True				True
 
-Variable				b				int				False				False
+Variable				b				int				True				True
 
-Function				func				int				False				False
+Function				func				int				True				True
 args:[
 Variable				x				int				False				False
-Variable				y				int				False				False
+Variable				t				int				False				False
 ]
 
-Variable				bb				int				False				False
+Variable				bb				int				True				False
 -------------------------------------------------------------------------------------
 
 
