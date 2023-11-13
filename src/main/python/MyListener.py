@@ -132,7 +132,7 @@ class MyListener(compiladoresListener):
                     "IMPLEMENTATION DOES NOT MATCH THE PROTOTYPE".center(50, '-'))
                 
             for id in argsList:
-                # PARA LOS PARAMETROS Y ARGUMENTOS DE LAS FUNCIONES, VA EN exitFunction, ->>>>>>>>>>>>>>>>>>>> Verificar
+                # PARA LOS PARAMETROS Y ARGUMENTOS DE LAS FUNCIONES, VA EN exitFunction, ->>>>>>>>>>>>>>>>>>>>> Verificar
                 localContext = self.symbolsTable.findIdLocal(id.name)
                 if localContext:
                     print("ENTRE A LOCAL CONTEXT")
