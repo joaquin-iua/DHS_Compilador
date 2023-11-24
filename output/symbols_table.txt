@@ -1,0 +1,54 @@
+-------------------------------------------------------------------------------------
+
+Context[1]
+ID						NAME			DATATYPE		INICIALIZED			ACCESSED
+-------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------
+
+Context[2]
+ID						NAME			DATATYPE		INICIALIZED			ACCESSED
+-------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------
+
+Context[3]
+ID						NAME			DATATYPE		INICIALIZED			ACCESSED
+
+Variable				h				int				True				True
+
+Variable				y				int				True				True
+-------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------
+
+Context[0]
+ID						NAME			DATATYPE		INICIALIZED			ACCESSED
+
+Variable				x				int				True				True
+
+Variable				t				int				True				True
+
+Variable				i				int				True				True
+
+Variable				h				int				True				False
+
+Function				f				int				False				True
+args:[
+Variable				x				int				True				True
+Variable				t				int				True				True
+]
+-------------------------------------------------------------------------------------
+
+
+
+

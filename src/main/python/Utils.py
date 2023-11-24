@@ -33,11 +33,11 @@ class Utils:
             if i[:3] == 'int':
                 name = i[3:]
                 datatype = 'int'
-                argsList.append(Variable(name, datatype))
+                argsList.append(Variable(name, datatype, True, True))
             elif i[:6] == 'double':
                 name = i[6:]
                 datatype = 'double'
-                argsList.append(Variable(name, datatype))
+                argsList.append(Variable(name, datatype, True, True))
             elif i == '':
                 print("FUNCTION ARGUMENT LIST IS EMPTY".center(50, '-'))
         return argsList

@@ -2,14 +2,14 @@ from abc import ABC, abstractmethod
 
 class ID(ABC):
 
-    def __init__(self, name, datatype, inicialized=False, accessed=False):
+    def __init__(self, name, datatype, initialized=False, accessed=False):
         self._name = name
         self._datatype = datatype
-        self._inicialized = inicialized
+        self._initialized = initialized
         self._accessed = accessed
 
     def __str__(self) -> str:
-        return f'{self.__class__.__name__}\t\t\t\t{self._name}\t\t\t\t{self._datatype}\t\t\t\t{self._inicialized}\t\t\t\t{self._accessed}'
+        return f'{self.__class__.__name__}\t\t\t\t{self._name}\t\t\t\t{self._datatype}\t\t\t\t{self._initialized}\t\t\t\t{self._accessed}'
 
     def __eq__(self, other) -> bool:
         if isinstance(other, ID):
@@ -24,11 +24,11 @@ class ID(ABC):
         return self._datatype
 
     @property
-    def inicialized(self):
-        return self._inicialized
+    def initialized(self):
+        return self._initialized
     
     def setInitialized(self):
-        self._inicialized = True
+        self._initialized = True
 
     @property
     def accessed(self):
@@ -45,9 +45,9 @@ class ID(ABC):
     def datatype(self, datatype):
         self._datatype = datatype
 
-    @inicialized.setter
-    def inicialized(self, flag):
-        self._inicialized = flag
+    @initialized.setter
+    def initialized(self, flag):
+        self._initialized = flag
 
     @accessed.setter
     def accessed(self, flag):
@@ -60,8 +60,8 @@ class Variable(ID):
 
 class Function(ID):
 
-    def __init__(self, name, datatype, args, inicialized=False, accessed=False):
-        super().__init__(name, datatype, inicialized, accessed)
+    def __init__(self, name, datatype, args, initialized=False, accessed=False):
+        super().__init__(name, datatype, initialized, accessed)
         self._args = list(args)
 
     def __str__(self) -> str:

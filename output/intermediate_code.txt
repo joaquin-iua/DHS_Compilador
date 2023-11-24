@@ -1,0 +1,73 @@
+t1=0
+x=t1
+t2=0
+t=t2
+label t3
+t4=x<10
+t6=x
+ifn t4 jmp t5
+t7=z
+t8=5
+t9=t7+t8
+y=t9
+t10=x
+t11=1
+t12=t10+t11
+x=t12
+jmp t3
+label t5
+t13=0
+i=t13
+t14=0
+h=t14
+i=0
+label t15
+t16=i<10
+t18=i
+ifn t16 jmp t17
+t19=i
+h=t19
+i=i+1
+jmp t15
+label t17
+t23=x
+t20=x>0
+ifn t20 jmp t21
+t24=z
+t25=5
+t26=t24+t25
+y=t26
+jmp t22
+label t21
+t27=z
+t28=5
+t29=t27-t28
+y=t29
+label t22
+label f
+pop return_pc
+push x
+push t
+t30=t
+t31=2
+t32=t30+t31
+h=t32
+t33=x
+t34=h
+t35=t33+t34
+y=t35
+t36=y
+push t36
+jmp return_pc
+label end_f
+t37=3
+t=t37
+t38=5
+x=t38
+t39=x
+t40=t
+push pc+8
+jmp f
+pop function_result
+pop t
+pop x

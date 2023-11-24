@@ -77,11 +77,11 @@ datatype  : INT
 
 block : LB instructions RB;
 
-if_stmt : IF LP arithmetic_logical_op RP instruction | IF LP arithmetic_logical_op RP instruction else_stmt;
+if_stmt : IF LP arithmetic_logical_op RP instruction else_stmt;
 
-else_stmt : ELSE block;
+else_stmt : ELSE instruction | ;
 
-for_stmt : FOR LP assignment SEMICOLON arithmetic_logical_op SEMICOLON assignment SEMICOLON instruction;
+for_stmt : FOR LP assignment SEMICOLON arithmetic_logical_op SEMICOLON assignment RP instruction;
 
 while_stmt : WHILE LP arithmetic_logical_op RP instruction ;
 
@@ -131,7 +131,7 @@ function_call : ID LP sent_args RP;
 received_args : datatype ID received_args_list
               |;
 
-received_args_list : COMA datatype  ID received_args_list
+received_args_list : COMA datatype ID received_args_list
             | ;
 
 sent_args : expression sent_args_list
@@ -147,4 +147,5 @@ cmp : GT
     | GE
     | LE
     ;
+    
     
